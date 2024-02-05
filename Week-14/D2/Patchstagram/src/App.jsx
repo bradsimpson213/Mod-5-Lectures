@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom" 
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom" 
 import Landing from "./components/Landing"
 import Feed from "./components/Feed"
 import PostForm from "./components/PostForm"
@@ -10,12 +10,12 @@ import PostDetails from "./components/PostDetails"
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Landing />
-  },
-  {
     element: <Layout />,
     children: [
+      {
+        path: '/',
+        element: <Landing />
+      },
       {
         path:'posts',
         element: <Feed data={ someData } />,
@@ -60,6 +60,7 @@ function App() {
 
   return (
     <>
+      {/* <Link to="/posts" ></Link> */}
       <RouterProvider router={ router } />
       {/* <h1>Welcome to Patchstagram!</h1>
       <img style={{ height: "300px" }} src="https://res.cloudinary.com/app-academy4/image/upload/v1647291502/Patchstagram/patch_hd_riobbp.png" />

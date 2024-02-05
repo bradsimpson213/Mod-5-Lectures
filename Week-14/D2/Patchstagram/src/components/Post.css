@@ -1,7 +1,7 @@
 .post-container {
     width: 600px;
     border: 2px solid white;
-    margin: 5px 5px 5px 5px;
+    margin: 15px 5px 15px 5px;
 }
 
 .post-header {
@@ -27,8 +27,8 @@
 }
 
 .profile-image {
-    height: 75px;
-    width: 75px;
+    height: 60px;
+    width: 60px;
     border: 1px solid white;
     border-radius: 45px;
     margin: 10px;
