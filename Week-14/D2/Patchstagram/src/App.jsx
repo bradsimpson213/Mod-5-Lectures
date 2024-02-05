@@ -10,21 +10,19 @@ import PostDetails from "./components/PostDetails"
 
 const router = createBrowserRouter([
   {
+    path: '/',
+    element: <Landing />
+  },
+  {
     element: <Layout />,
     children: [
       {
-        path: '/',
-        element: <Landing />
-      },
-      {
         path:'posts',
         element: <Feed data={ someData } />,
-        children: [
-          {
-            path: ":postId",
-            element: <PostDetails data={ someData } />
-          }
-        ]
+      },
+      {
+        path: "posts/:postId",
+        element: <PostDetails data={ someData } />
       },
       {
         path: 'new',

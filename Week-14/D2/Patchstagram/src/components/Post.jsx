@@ -1,12 +1,16 @@
-import Comment from "./Comment";
+// import Comment from "./Comment";
+import { useNavigate } from "react-router-dom";
 import "./Post.css"
 
 
-export default function Post(props) {
-    console.log(props)
-    const { title, author, image, date } = props.data
+export default function Post({ data }) {
+    const { id, title, author, image, date } = data
+    const navigate = useNavigate()
+
     return (
-        <div className="post-container">
+        <div className="post-container"
+            onClick={ () => navigate(`/posts/${id}`) }
+        >
             <div className="post-header">
                 <div className="user-info">
                     <img
@@ -26,7 +30,6 @@ export default function Post(props) {
                     className="content-image" 
                 />
             </div>
-
             {/* <div className="comment-container">
                 {comments.map((comment, index) => (
                     <Comment key={index} comment={comment} />
