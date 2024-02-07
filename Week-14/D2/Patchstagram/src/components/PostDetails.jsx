@@ -13,7 +13,8 @@ export default function PostDetails({ data }){
 
     return (
         <div className="post-container"
-            onClick={ () => navigate("/posts") }
+            onClick={ () => navigate(-1) }  
+            //{replace:true}
         >
             <div className="post-header">
                 <div className="user-info">
