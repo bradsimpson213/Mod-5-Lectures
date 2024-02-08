@@ -19,6 +19,8 @@ const UseState = () => {
       >
         Light
       </button>
+            {/* <button onClick={ () => setTheme('dark') }>Dark</button>
+      <button onClick={ () => setTheme('light') }>Light</button> */}
       <h2>Count: { count }</h2>
       <button
         onClick={ () => setCount( (prevCount) => prevCount + 1) }

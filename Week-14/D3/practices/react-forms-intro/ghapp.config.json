@@ -1,0 +1,12 @@
+{
+  "programs": {
+    "BASE": {
+      "starter-exclusions": [
+        "src/ContactUs.jsx"
+      ]
+    },
+    "CH": true, 
+    "FT": true, 
+    "PT": true  
+  }
+}
