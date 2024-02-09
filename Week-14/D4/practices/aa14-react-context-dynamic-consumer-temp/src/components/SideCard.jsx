@@ -1,4 +1,6 @@
 const SideCard = () => {
+
+  console.log("sidecard component ran")
   return (
     <div className='side-card'>
       <h1>React Context with Horoscopes</h1>
