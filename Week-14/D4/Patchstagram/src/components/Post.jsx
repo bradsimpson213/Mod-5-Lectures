@@ -1,14 +1,15 @@
 // import Comment from "./Comment";
 import { useNavigate } from "react-router-dom";
 import "./Post.css"
-
+import { useThemeContext } from "../context/ThemeContext";
 
 export default function Post({ data }) {
+    const { theme } = useThemeContext()
     const { id, title, author, image, date } = data
     const navigate = useNavigate()
 
     return (
-        <div className="post-container"
+        <div className={`post-container ${theme}`}
             onClick={ () => navigate(`/posts/${id}`) }
         >
             <div className="post-header">
