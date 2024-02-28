@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import fruitReducer from './fruitReducer';
+import articlesReducer from './articleReducer';
 
 /*
 `combineReducers` combines all the reducer functions into one big reducer
@@ -9,6 +10,7 @@ components.
 */
 const rootReducer = combineReducers({
   fruitState: fruitReducer,
+  articlesState: articlesReducer,
 });
 
 /*
