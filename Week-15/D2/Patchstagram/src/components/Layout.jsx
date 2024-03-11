@@ -1,10 +1,23 @@
 import { Outlet, NavLink } from 'react-router-dom'
 import "./Layout.css"
 import { useThemeContext } from '../context/ThemeContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, Navigate } from 'react-router-dom'
+import { logoutUser } from '../store/userReducer'
+import Switch from '../components/Switch'
 
 
 export default function Layout() {
-    const { theme, setTheme } = useThemeContext()
+    const currentUser = useSelector(state => state.userState.sessionUser)
+    const { theme } = useThemeContext()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+        console.log("dispatched logout")
+        navigate("/")
+    }
 
     return (
         <div>
@@ -20,12 +33,20 @@ export default function Layout() {
                 <NavLink to="/"> Home </NavLink>
                 <NavLink to="/posts"> Feed </NavLink>
                 <NavLink to="/new"> New Post </NavLink>
-                <div
-                    onClick={() => setTheme(prevState => prevState === "dark" ? "light" : "dark")}
-                    className="theme-switch"
-                >
-                    { theme === "dark" ? "🌞" : "🌙" }
+                <div className="navbar-user-info">
+                    <span>Current user:</span>
+                    { currentUser 
+                        ? <span>{ currentUser.username }</span> 
+                        : <Navigate to="/" replace={true} />
+                    }
                 </div>
+                <button 
+                    onClick={ handleLogout }
+                    className='navbar-logout-button'
+                >
+                    Logout
+                </button>
+                <Switch />
             </nav>
             <Outlet />
         </div>

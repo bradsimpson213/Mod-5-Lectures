@@ -11,11 +11,13 @@ function App() {
     <div>
       <h1>Hello Programmers!</h1>
       <h2>Welcome to React!</h2>
-      <Post title="This post is cool" />
-      <Post title="This post is less cool"/>
-      <Post />
-      <Post />
-      <Post />
+      {/* <Post title="This post is cool" />
+      <Post title="This post is less cool"/> */}
+      <Post num={1}/>
+      <Post num={1}/>
+      <Post num={1}/>
+      <Post num={1}/>
+      {/* <Post /> */}
     </div>
 
   )

@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import postData, { users } from "../data"
+import { usePostsContext } from '../context/PostsContext'
 
 
 export default function PostForm() {
-    const navigate = useNavigate()
+    const { posts, setPosts } = usePostsContext()
     const [title, setTitle] = useState("")
     const [image, setImage] = useState("")
     const [author, setAuthor] = useState("")
     const [validationErrors, setValidationErrors] = useState({})
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const navigate = useNavigate()
     
 
     useEffect(() => {
@@ -46,7 +48,8 @@ export default function PostForm() {
             likes: Math.floor(Math.random() * 10)
         }
         console.log(newPost)
-        postData.push(newPost)
+        // postData.push(newPost)
+        setPosts([ ...posts, newPost ])
         // set state back to old
         navigate("/posts")
     }

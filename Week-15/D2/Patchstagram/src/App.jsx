@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path:'posts',
-        element: <Feed data={ someData } />,
+        element: <Feed />,
       },
       {
         path: "posts/:postId",
