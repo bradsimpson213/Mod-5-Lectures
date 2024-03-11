@@ -1,9 +1,11 @@
 import Post from "../components/Post"
-import { usePostsContext } from "../context/PostsContext";
+// import { usePostsContext } from "../context/PostsContext";
+import { useSelector } from "react-redux"
 import"./Feed.css"
 
 export default function Feed() {
-    const { posts } = usePostsContext()
+    // const { posts } = usePostsContext()
+    const posts = useSelector(state => state.postsState.posts)
 
     const compare = (a, b) => {
         if (new Date(a.date) < new Date(b.date)) return 1;

@@ -1,15 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import Comment from './Comment'
 import { useThemeContext } from '../context/ThemeContext'
+import { useSelector } from 'react-redux'
 
-
-export default function PostDetails({ data }){
-
+export default function PostDetails(){
+    const posts = useSelector(state => state.postsState.posts)
     const navigate = useNavigate()
     const { postId } = useParams()
     const { theme } = useThemeContext()
     console.log("post ID:", postId)
-    const postData = data.find( (post) => post.id === +postId )
+    const postData = posts.find( (post) => post.id === +postId )
     const { title, author, image, date, comments, likes } = postData
 
     return (
@@ -38,6 +38,7 @@ export default function PostDetails({ data }){
                 </div>
                 <p>Likes: { likes }</p>
                 <div className="comment-container">
+                    { comments.length ? null : <h3>No comments yet...</h3>}
                     {comments.map((comment, index) => (
                         <Comment key={index} comment={comment} />
                     ))}

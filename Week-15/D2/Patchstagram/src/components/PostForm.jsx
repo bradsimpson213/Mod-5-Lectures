@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import postData, { users } from "../data"
-import { usePostsContext } from '../context/PostsContext'
+// import postData, { users } from "../data"
+// import { usePostsContext } from '../context/PostsContext'
+import { useDispatch, useSelector } from "react-redux"
+import { savePosts } from '../store/postsReducer'
 
 
 export default function PostForm() {
-    const { posts, setPosts } = usePostsContext()
+    // const { posts, setPosts } = usePostsContext()
+    const posts = useSelector(state => state.postsState.posts)
+    const users = useSelector(state => state.usersState.users)
     const [title, setTitle] = useState("")
     const [image, setImage] = useState("")
     const [author, setAuthor] = useState("")
     const [validationErrors, setValidationErrors] = useState({})
     const [hasSubmitted, setHasSubmitted] = useState(false)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     
 
@@ -39,7 +44,7 @@ export default function PostForm() {
         // const randomLikes = Math.floor(Math.random() * 10)
         
         const newPost = {
-            id: postData.length + 1,
+            id: posts.length + 1,
             title,
             image,
             author: selectedUser,
@@ -48,9 +53,10 @@ export default function PostForm() {
             likes: Math.floor(Math.random() * 10)
         }
         console.log(newPost)
-        // postData.push(newPost)
-        setPosts([ ...posts, newPost ])
+        // // postData.push(newPost)
+        // setPosts([ ...posts, newPost ])
         // set state back to old
+        dispatch(savePosts(newPost))
         navigate("/posts")
     }
 

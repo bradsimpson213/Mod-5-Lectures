@@ -3,12 +3,12 @@ import "./Layout.css"
 import { useThemeContext } from '../context/ThemeContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Navigate } from 'react-router-dom'
-import { logoutUser } from '../store/userReducer'
+import { logoutUser } from '../store/usersReducer'
 import Switch from '../components/Switch'
 
 
 export default function Layout() {
-    const currentUser = useSelector(state => state.userState.sessionUser)
+    const currentUser = useSelector(state => state.usersState.sessionUser)
     const { theme } = useThemeContext()
     const dispatch = useDispatch()
     const navigate = useNavigate()

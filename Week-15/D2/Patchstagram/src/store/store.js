@@ -1,9 +1,11 @@
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
-import userReducer from "./userReducer"
+import usersReducer from "./usersReducer"
+import postsReducer from "./postsReducer";
 
 
 const rootReducer = combineReducers({
-    userState: userReducer
+    usersState: usersReducer,
+    postsState: postsReducer
 })
 
 

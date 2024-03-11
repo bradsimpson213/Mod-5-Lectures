@@ -1,11 +1,11 @@
 import { users } from "../data";
 
-const LOAD_USERS = "userState/load_users";
-const SET_CURRENT_USER = "userState/set_current_user"
-const LOGOUT_CURRENT_USER = "userState/logout_current_user"
+const LOAD_USERS = "usersState/load_users";
+const SET_CURRENT_USER = "usersState/set_current_user"
+const LOGOUT_CURRENT_USER = "usersState/logout_current_user"
 
 
-export const loadUsers = () => ({
+export const loadUsers = (users) => ({
   type: LOAD_USERS,
   users
 });
@@ -22,7 +22,7 @@ export const logoutUser = () => ({
 
 const initialState = {users: users, sessionUser: null};
 
-const userReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   switch(action.type){
     case LOAD_USERS:
       return {...state, ...action.users}
@@ -35,4 +35,4 @@ const userReducer = (state = initialState, action) => {
   }
 };
 
-export default userReducer;
+export default usersReducer;

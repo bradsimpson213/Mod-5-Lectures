@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
-import { loginUser } from "../store/userReducer"
+import { loginUser } from "../store/usersReducer"
 import "./Landing.css"
 
 
@@ -9,7 +9,7 @@ export default function Landing(){
     const [ user, setUser ] = useState("")
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const users = useSelector(state => state.userState.users)
+    const users = useSelector(state => state.usersState.users)
 
     const handleSubmit = (e) => {
         e.preventDefault()
