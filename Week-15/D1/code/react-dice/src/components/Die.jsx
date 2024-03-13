@@ -14,7 +14,7 @@
 //     }
 // }
 
-// export default Die
+// export default Die;
 
 
 import "./Die.css";

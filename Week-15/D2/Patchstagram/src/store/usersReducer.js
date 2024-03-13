@@ -20,12 +20,12 @@ export const logoutUser = () => ({
 })
 
 
-const initialState = {users: users, sessionUser: null};
+const initialState = {users: [], sessionUser: null};
 
 const usersReducer = (state = initialState, action) => {
   switch(action.type){
     case LOAD_USERS:
-      return {...state, ...action.users}
+      return {...state, users: [...action.users ]}
     case SET_CURRENT_USER:
       return {...state, sessionUser: action.user }
     case LOGOUT_CURRENT_USER:

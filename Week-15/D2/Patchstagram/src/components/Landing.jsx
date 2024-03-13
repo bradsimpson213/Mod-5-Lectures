@@ -1,15 +1,20 @@
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { useState } from "react"
-import { loginUser } from "../store/usersReducer"
+import { useState, useEffect } from "react"
+import { loadUsers, loginUser } from "../store/usersReducer"
 import "./Landing.css"
-
+import { users as seedUsers } from "../data"
 
 export default function Landing(){
     const [ user, setUser ] = useState("")
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const users = useSelector(state => state.usersState.users)
+
+
+    useEffect( () => {
+        dispatch(loadUsers(seedUsers))
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()

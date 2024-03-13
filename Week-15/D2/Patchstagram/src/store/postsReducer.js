@@ -13,12 +13,12 @@ export const savePosts = (post) => ({
     post
 })
 
-const initialState = { posts: someData };
+const initialState = { posts: [] };
 
 const postsReducer = (state = initialState, action) => {
   switch(action.type){
     case LOAD_POSTS:
-        return {...state, ...action.posts}
+        return {...state, posts: [...action.posts]}
     case SAVE_POST:
         return {...state, posts: [...state.posts, action.post ]}
     default:

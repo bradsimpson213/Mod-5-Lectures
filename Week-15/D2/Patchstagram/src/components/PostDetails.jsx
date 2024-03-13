@@ -3,13 +3,14 @@ import Comment from './Comment'
 import { useThemeContext } from '../context/ThemeContext'
 import { useSelector } from 'react-redux'
 
+
 export default function PostDetails(){
     const posts = useSelector(state => state.postsState.posts)
+    const postData = posts.find( (post) => post.id === +postId )
     const navigate = useNavigate()
     const { postId } = useParams()
     const { theme } = useThemeContext()
     console.log("post ID:", postId)
-    const postData = posts.find( (post) => post.id === +postId )
     const { title, author, image, date, comments, likes } = postData
 
     return (
