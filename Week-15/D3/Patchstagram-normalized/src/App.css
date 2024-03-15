@@ -1,0 +1,25 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+.error {
+  color:red;
+}
+
+
+.light {
+  background-color: whitesmoke;
+  color: black;
+  border-color: black;
+  border-bottom-color: black;
+}
+
+.dark {
+  background-color: black;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-bottom-color: whitesmoke;
+}
